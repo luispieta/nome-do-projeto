@@ -10,7 +10,7 @@ interface FormularioProps {
 
 export default function Formulario({ setTarefas }: FormularioProps) {
   const [tarefa, setTarefa] = useState("");
-  const [tempo, setTempo] = useState("00:00");
+  const [tempo, setTempo] = useState("00:00:00");
 
   function adicionarTarefa(evento: React.FormEvent<HTMLFormElement>) {
     evento.preventDefault();
@@ -25,7 +25,7 @@ export default function Formulario({ setTarefas }: FormularioProps) {
       }
     ]);
     setTarefa("");
-    setTempo("00:00");
+    setTempo("00:00:00");
   }
 
   return (
@@ -45,13 +45,13 @@ export default function Formulario({ setTarefas }: FormularioProps) {
       <div className={style.inputContainer}>
         <label htmlFor="tempo">Tempo</label>
         <input 
-          type="time" 
+          type="time"
           step="1"
           name="tempo"
           value={tempo}
           onChange={evento => setTempo(evento.target.value)}
           id="tempo"
-          min="00:00:00"
+          min="00:00:01"
           max="24:00:00"
           required
         />
